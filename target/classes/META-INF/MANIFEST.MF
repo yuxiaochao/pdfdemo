@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: online-store
 Implementation-Version: 2.0.1-SNAPSHOT
-Built-By: Administrator
+Built-By: xiaochao
 Implementation-Vendor-Id: com.shop
-Build-Jdk: 1.8.0_144
+Build-Jdk: 1.8.0_171
 Implementation-URL: http://projects.spring.io/spring-boot/online-store
  /
 Created-By: Maven Integration for Eclipse

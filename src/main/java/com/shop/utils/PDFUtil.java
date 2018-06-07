@@ -13,12 +13,23 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStamper;
-
+/**
+ * PDF导出
+ * @author xiaochao
+ *
+ */
 public class PDFUtil {
 
-	public static void getPDF(Map<String, String> data) throws IOException, DocumentException {
-		String fileName = "/表单.pdf"; // pdf模板
-		PdfReader reader = new PdfReader(fileName);
+	/**
+	 * 
+	 * @param data 表单域数据
+	 * @param templatePath 模板路径
+	 * @param targetPath 目标文件路径
+	 * @throws IOException
+	 * @throws DocumentException
+	 */
+	public static void getPDF(Map<String, String> data,String templatePath,String targetPath) throws IOException, DocumentException {
+		PdfReader reader = new PdfReader(templatePath);
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		/* 将要生成的目标PDF文件名称 */
 		PdfStamper ps = new PdfStamper(reader, bos);
@@ -38,7 +49,7 @@ public class PDFUtil {
 		ps.setFormFlattening(true);
 		ps.close();
 
-		OutputStream fos = new FileOutputStream("/usr/webfile/pdffile/ceshi.pdf");
+		OutputStream fos = new FileOutputStream(targetPath);
 		fos.write(bos.toByteArray());
 		fos.flush();
 		fos.close();

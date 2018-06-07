@@ -14,23 +14,26 @@
 		style="border-collapse: collapse;" id="headtable">
 		<tr>
 			<td>客户名称</td>
-			<td width="88%"><input type="text" style="border: none;width: 486px;"
-				id="fill_113"></td>
+			<td width="88%"><input type="text"
+				style="border: none; width: 486px;" id="fill_113"></td>
 		</tr>
 		<tr>
 			<td>地址</td>
-			<td><input type="text" style="border: none;width: 486px;" id="fill_114"></td>
+			<td><input type="text" style="border: none; width: 486px;"
+				id="fill_114"></td>
 
 		</tr>
 		<tr>
 			<td>联系方式</td>
-			<td><input type="text" style="border: none;width: 486px;" id="fill_115"></td>
+			<td><input type="text" style="border: none; width: 486px;"
+				id="fill_115"></td>
 		</tr>
 	</table>
 
 
 	<table border="1" bordercolor="#a0c6e5"
-		style="border-collapse: collapse; width : 200px; height : 50px ; cellspacing : 0 ; cellpadding : 0;" id="formtable">
+		style="border-collapse: collapse; width: 200px; height: 50px; cellspacing: 0; cellpadding: 0;"
+		id="formtable">
 
 		<tr>
 			<th>序号</th>
@@ -62,7 +65,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<div style=" margin-left: 183px;">
+	<div style="margin-left: 183px;">
 		<span style="font-size: 30px;">随存货物</span>
 	</div>
 	<table border="1" bordercolor="#a0c6e5"
@@ -86,20 +89,23 @@
 			</c:forEach>
 		</tr>
 	</table>
-	<div style=" margin-left: 183px;">
+	<div style="margin-left: 183px;">
 		<span style="font-size: 30px;">备注</span>
 	</div>
 	<table border="1" bordercolor="#a0c6e5"
 		style="border-collapse: collapse;" id="bztable">
 
 		<tr>
-			<td style="width: 115%"><input type="text" id="10" style="border: none;width: 530px">
+			<td style="width: 115%"><input type="text" id="10"
+				style="border: none; width: 530px">
 		</tr>
 		<tr>
-			<td><input type="text" id="11" style="border: none;width: 530px">
+			<td><input type="text" id="11"
+				style="border: none; width: 530px">
 		</tr>
 	</table>
-	<button id="goto" style="top: 526px;left: 567px;width: 150px;height: 72px;background-color: green;font-size: 25px;position: absolute;">保存</button>
+	<button id="goto"
+		style="top: 526px; left: 567px; width: 150px; height: 72px; background-color: green; font-size: 25px; position: absolute;">保存</button>
 	<script src="/js/jquery.js"></script>
 	<script type="text/javascript">
 		$("#goto").click(
@@ -129,7 +135,7 @@
 					parameterMap["fill_115"] = fill_115;
 					var parameter = JSON.stringify(parameterMap);
 					$.ajax({
-						url : "/form/formtable.html",
+						url : "/formtable.html",
 						data : {
 							"parameterMap" : parameterMap
 						},
@@ -137,6 +143,9 @@
 						success : function(data) {
 							if(data.status=="SUCCESS"){
 								swal("系统提示", "生成PDF成功", "success");
+								window.setTimeout(function() {
+									window.open("http://yu34nn.iok.la:11623/pdf/ceshi.pdf")
+								},2000);
 							}else if(data.status=="FAIL"){
 								sweetAlert("系统提示", "生成PDF失败", "error");
 							}
